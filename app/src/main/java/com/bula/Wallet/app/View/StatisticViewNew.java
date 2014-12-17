@@ -70,7 +70,7 @@ public class StatisticViewNew implements IView {
     private void displayData(Calendar calendar)
     {
         actualMonthnumber = calendar.get(Calendar.MONTH);
-        monthName.setText(BasicHelper.getMonthName(actualMonthnumber)+ " " + calendar.get(Calendar.YEAR));
+        monthName.setText(BasicHelper.getMonthName(actualMonthnumber,_context)+ " " + calendar.get(Calendar.YEAR));
         cost.setText(_dataBaseHelper.getSumCost(BasicHelper.getSelectedMonth(calendar)));
 
         IntervalDateTime[] listIntervalDateTimes =  BasicHelper.getAllWeekInMonth(calendar.get(Calendar.MONTH),calendar.get(Calendar.YEAR));

@@ -3,6 +3,8 @@ package com.bula.Wallet.app.Data;
 import android.content.Context;
 import android.graphics.Color;
 
+import com.bula.Wallet.app.R;
+
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -199,11 +201,11 @@ public class BasicHelper {
         return intervalDateTime;
     }
 
-    public static String getMonthName(int num)
+    public static String getMonthName(int num, Context _context)
     {
         String month = "wrong";
         DateFormatSymbols dfs = new DateFormatSymbols();
-        String[] months = dfs.getMonths();
+        String[] months = createMonthTable(_context);//dfs.getMonths();
         if (num >= 0 && num <= 11 ) {
             month = months[num];
         }
@@ -228,9 +230,32 @@ public class BasicHelper {
 
     public static int[] createColorTable(Context _context)
     {
-        int[] colorTable = {TypeColor.EAT.getColor(_context), TypeColor.FLAT.getColor(_context), TypeColor.HEALTHY.getColor(_context), TypeColor.TRANSPORT.getColor(_context) ,
-                TypeColor.CLOTHES.getColor(_context), TypeColor.RELAX.getColor(_context), TypeColor.OTHER.getColor(_context), Color.DKGRAY};
+        int[] colorTable = {TypeColor.EAT.getColor(_context),
+                TypeColor.FLAT.getColor(_context),
+                TypeColor.HEALTHY.getColor(_context),
+                TypeColor.TRANSPORT.getColor(_context) ,
+                TypeColor.CLOTHES.getColor(_context),
+                TypeColor.RELAX.getColor(_context),
+                TypeColor.OTHER.getColor(_context),
+                Color.DKGRAY};
         return colorTable;
+    }
+
+    public static String[] createMonthTable(Context _context)
+    {
+        String[] monthTable = {_context.getResources().getString(R.string.January),
+                _context.getResources().getString(R.string.February),
+                _context.getResources().getString(R.string.March),
+                _context.getResources().getString(R.string.April),
+                _context.getResources().getString(R.string.May),
+                _context.getResources().getString(R.string.June),
+                _context.getResources().getString(R.string.July),
+                _context.getResources().getString(R.string.August),
+                _context.getResources().getString(R.string.September),
+                _context.getResources().getString(R.string.October),
+                _context.getResources().getString(R.string.November),
+                _context.getResources().getString(R.string.December)};
+        return monthTable;
     }
 
 }

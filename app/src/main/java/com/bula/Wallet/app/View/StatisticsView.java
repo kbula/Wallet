@@ -77,7 +77,7 @@ public class StatisticsView implements IView {
 
                     Calendar calendar  = Calendar.getInstance();
                     calendar.setTime(_listStatistic.get(selectedIndex).getInterval().getBegin());
-                    monthName.setText(BasicHelper.getMonthName(_listStatistic.get(selectedIndex).getInterval().getBegin().getMonth() )+
+                    monthName.setText(BasicHelper.getMonthName(_listStatistic.get(selectedIndex).getInterval().getBegin().getMonth() ,_context)+
                             " " + calendar.get(Calendar.YEAR));
                     setDateLayout.getLayoutParams().height=0;
                     if(view != null)
