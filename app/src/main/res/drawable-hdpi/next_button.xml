@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+            android:drawable="@drawable/triangle"
+            android:fromDegrees="180"
+            android:toDegrees="180"
+            android:visible="true" />
+    </item>
+    <item>
+        <shape
+            android:shape="rectangle"  >
+            
+        </shape>
+    </item>
+</selector>

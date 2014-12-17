@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/type_name"
+            android:id="@+id/textViewType" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/spinnerType" />
+
+     </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.1"
+        android:layout_below="@id/spinnerType" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Od : "
+            android:id="@+id/textViewFrom" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editDateFrom" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Do : "
+            android:id="@+id/textViewTo" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editDateTo"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30px"/>
+
+
+  <!--  <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:scrollbars="vertical"
+        android:layout_gravity="fill_vertical"
+        android:id="@+id/listViewItem" />-->
+
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:layout_gravity="fill_vertical"
+        android:id="@+id/expandableListView" />
+
+
+
+
+</LinearLayout>
+</RelativeLayout>

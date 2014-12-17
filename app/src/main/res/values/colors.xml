@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_holo_dark">#ff000000</color>
+    <color name="background_holo_light">#fff3f3f3</color>
+    <color name="color_eat">#ffe82931</color>
+    <color name="color_flat">#ff5ae836</color>
+    <color name="color_healthy">#ff4449e8</color>
+    <color name="color_transport">#ffe87b10</color>
+    <color name="color_clothes">#ff5de8e0</color>
+    <color name="color_relax">#ffa244e8</color>
+    <color name="color_other">#ddff437f</color>
+</resources>

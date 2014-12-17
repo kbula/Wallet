@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.1"
+        android:layout_height="30dp">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:inputType="numberDecimal"
+            android:background="@drawable/ic_action_back"
+            android:ems="10"
+            android:id="@+id/buttonPrev" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"
+            android:text="month"
+            android:id="@+id/monthName" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:inputType="numberDecimal"
+            android:background="@drawable/ic_action_next"
+            android:ems="10"
+            android:id="@+id/buttonNext" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="cost"
+        android:layout_weight="0.6"
+        android:id="@+id/cost"/>
+
+</LinearLayout>

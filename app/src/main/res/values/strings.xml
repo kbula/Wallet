@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wallet</string>
+    <string name="title_section1">Dodaj</string>
+    <string name="title_section2">Statystyki</string>
+    <string name="title_section3">Raporty</string>
+    <string name="action_settings">Settings</string>
+    <string name="type_name">Typ :</string>
+    <string name="note_name">Notatka :</string>
+    <string name="cost_name">Koszt :</string>
+    <string name="date_name">Data :</string>
+    <string name="date_add">Dodaj</string>
+</resources>

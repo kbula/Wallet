@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="New Text"
+        android:id="@+id/actualWeek"
+        android:textSize="@dimen/font_size"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="New Text"
+        android:id="@+id/lastWeek"
+        android:textSize="@dimen/font_size"
+        android:layout_weight="0.10" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="New Text"
+        android:id="@+id/lastMonth"
+        android:textSize="@dimen/font_size"
+        android:layout_weight="0.1" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="0.1"
+        android:id="@+id/spinnerStatisctic" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="New Text"
+        android:id="@+id/textViewTotalCost"
+        android:textSize="@dimen/font_size"
+        android:layout_weight="0.10" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.1"
+        android:id="@+id/setDateLayout">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Od : "
+            android:id="@+id/textViewFrom" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editDateFrom" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Do : "
+            android:id="@+id/textViewTo" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_weight="2"
+            android:layout_height="fill_parent"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editDateTo"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="10px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dip"
+        android:id= "@+id/monthName"
+        android:text="month"/>
+
+    <com.bula.Wallet.app.View.PercentView
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:id="@+id/percentView"
+        android:layout_weight="0.70"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>
+
+</RelativeLayout>

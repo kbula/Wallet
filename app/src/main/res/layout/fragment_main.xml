@@ -1,0 +1,120 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.1"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/cost_name"
+            android:id="@+id/textViewCost" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextCost" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.1"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/type_name"
+            android:id="@+id/textViewType" />
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinnerType" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.1"
+        android:layout_height="30dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/date_name"
+            android:id="@+id/textViewDate" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextDate" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextTime" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_weight="0.1"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/note_name"
+            android:id="@+id/textView" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNotes"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_blue"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="@string/date_add"
+        android:id="@+id/buttonAdd" />
+
+</LinearLayout>
+</RelativeLayout>
