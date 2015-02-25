@@ -102,7 +102,7 @@
         android:id= "@+id/monthName"
         android:text="month"/>
 
-    <com.bula.Wallet.app.View.PercentView
+    <com.bula.Wallet.app.View.Tabs.PercentView
         android:layout_gravity="center_vertical|center_horizontal"
         android:id="@+id/percentView"
         android:layout_weight="0.70"

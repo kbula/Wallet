@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.PageAdapter;
 
 /**
  * Created by Krzysiek on 2014-08-09.

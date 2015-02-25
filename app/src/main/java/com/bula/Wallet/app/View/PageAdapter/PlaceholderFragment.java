@@ -1,25 +1,21 @@
 
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.PageAdapter;
 
-import android.app.admin.DeviceAdminInfo;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bula.Wallet.app.Data.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBaseHelper;
+import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.R;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.bula.Wallet.app.View.Tabs.AllView;
+import com.bula.Wallet.app.View.Tabs.IView;
+import com.bula.Wallet.app.View.Tabs.MainView;
+import com.bula.Wallet.app.View.Tabs.StatisticViewNew;
+import com.bula.Wallet.app.View.Tabs.StatisticsView;
 
 
 /**
@@ -63,31 +59,31 @@ public class PlaceholderFragment extends Fragment {
         switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
             case 1:
 
-                rootView = inflater.inflate(R.layout.fragment_main, container, false);
+                rootView = inflater.inflate(R.layout.fragment_main_view, container, false);
                 fragmentView = new MainView( _context, db);
                 fragmentView.createView(rootView);
                 fragmentView.executeData();
                 break;
             case 2:
-                rootView = inflater.inflate(R.layout.statistics, container, false);
-                fragmentView = new StatisticsView(_context, db);
+                rootView = inflater.inflate(R.layout.statistics_new_view, container, false);
+                fragmentView = new StatisticViewNew(_context, db);
                 fragmentView.createView(rootView);
                 fragmentView.executeData();
                 break;
             case 3:
-                rootView = inflater.inflate(R.layout.all, container, false);
+                rootView = inflater.inflate(R.layout.all_view, container, false);
                 fragmentView = new AllView(_context, db);
                 fragmentView.createView(rootView);
                 fragmentView.executeData();
                 break;
             case 4:
-                rootView = inflater.inflate(R.layout.statistics_new, container, false);
-                fragmentView = new StatisticViewNew(_context, db);
+                rootView = inflater.inflate(R.layout.statistics_view, container, false);
+                fragmentView = new StatisticsView(_context, db);
                 fragmentView.createView(rootView);
                 fragmentView.executeData();
                 break;
             default:
-                rootView = inflater.inflate(R.layout.fragment_main, container, false);
+                rootView = inflater.inflate(R.layout.fragment_main_view, container, false);
                 break;
         }
 

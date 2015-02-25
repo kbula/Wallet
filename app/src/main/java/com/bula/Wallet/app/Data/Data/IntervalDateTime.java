@@ -1,4 +1,6 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Data.Data;
+
+import com.bula.Wallet.app.Data.BasicHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

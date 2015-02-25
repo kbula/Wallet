@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Data.Data;
 
 import java.util.ArrayList;
 import java.util.List;

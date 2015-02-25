@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Controls;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,9 +11,9 @@ import android.widget.TimePicker;
 
 import com.bula.Wallet.app.Data.BasicHelper;
 import com.bula.Wallet.app.R;
+import com.bula.Wallet.app.View.Tabs.IView;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by Krzysiek on 2014-08-23.

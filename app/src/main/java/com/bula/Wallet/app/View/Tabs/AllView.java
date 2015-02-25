@@ -1,26 +1,19 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Tabs;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.app.AlertDialog;
 
-import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBaseHelper;
-import com.bula.Wallet.app.Data.IntervalDateTime;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Data.Data.IntervalDateTime;
 import com.bula.Wallet.app.R;
+import com.bula.Wallet.app.View.Controls.IntervalControl;
+import com.bula.Wallet.app.Data.WalletExpandableListAdapter;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -90,10 +83,10 @@ public class AllView implements IView
         else {*/
         if(!fromDate.isEmpty() && !toDate.isEmpty())
             //adapter = new ArrayAdapter<String>(_context, R.layout.listview_all_item, dataBaseHelper.getAllItemFromType(id,new IntervalDateTime(fromDate,toDate)));
-            adapter = new WalletExpandableListAdapter(_context,dataBaseHelper.getAllItemFromType(id,new IntervalDateTime(fromDate,toDate)),this);
+            adapter = new WalletExpandableListAdapter(_context, dataBaseHelper.getAllItemFromType(id,new IntervalDateTime(fromDate,toDate)), this);
         else
             //adapter = new ArrayAdapter<String>(_context, R.layout.listview_all_item, dataBaseHelper.getAllItemFromType(id));
-            adapter = new WalletExpandableListAdapter(_context,dataBaseHelper.getAllItemFromType(id,new IntervalDateTime(fromDate,toDate)),this);
+            adapter = new WalletExpandableListAdapter(_context, dataBaseHelper.getAllItemFromType(id,new IntervalDateTime(fromDate,toDate)), this);
        // }
         listView.setAdapter(adapter);
         //allItem.setAdapter(adapter);

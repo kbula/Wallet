@@ -1,9 +1,6 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Tabs;
 
-import android.content.Context;
 import android.view.View;
-
-import com.bula.Wallet.app.Data.DataBaseHelper;
 
 /**
  * Created by Krzysiek on 2014-08-09.

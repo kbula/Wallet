@@ -1,6 +1,5 @@
 package com.bula.Wallet.app;
 
-import android.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.FragmentTransaction;
@@ -9,16 +8,10 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-import android.content.res.Configuration;
 
-import com.bula.Wallet.app.Data.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBaseHelper;
-import com.bula.Wallet.app.View.PlaceholderFragment;
-import com.bula.Wallet.app.View.SectionsPagerAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.View.PageAdapter.SectionsPagerAdapter;
 
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {

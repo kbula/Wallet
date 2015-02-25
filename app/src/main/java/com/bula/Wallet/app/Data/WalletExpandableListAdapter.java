@@ -1,9 +1,6 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.Data;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -15,9 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
-import com.bula.Wallet.app.Data.AllData;
-import com.bula.Wallet.app.Data.WalletData;
+import com.bula.Wallet.app.Data.Data.AllData;
+import com.bula.Wallet.app.Data.Data.WalletData;
 import com.bula.Wallet.app.R;
+import com.bula.Wallet.app.View.Controls.EditWalletDialog;
+import com.bula.Wallet.app.View.Tabs.IView;
 
 /**
  * Created by Krzysiek on 2014-09-29.
@@ -99,7 +98,7 @@ public class WalletExpandableListAdapter extends BaseExpandableListAdapter {
         convertView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditWalletDialog.editData(_context,children,_view);
+                EditWalletDialog.editData(_context, children, _view);
                 Toast.makeText(_context, children.toString(),
                         Toast.LENGTH_SHORT).show();
             }

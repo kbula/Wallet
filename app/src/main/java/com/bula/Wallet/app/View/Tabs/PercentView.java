@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Tabs;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,14 +8,20 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.bula.Wallet.app.Data.BasicHelper;
+import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.Data.FillDiagram;
+import com.bula.Wallet.app.Data.Data.IntervalDateTime;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Krzysiek on 2014-08-26.
  */
 public class PercentView extends View {
+
 
     public PercentView (Context context) {
         super(context);
@@ -90,10 +96,33 @@ public class PercentView extends View {
         invalidate();
     }
 
-    public void fill(List<FillDiagram> listFillDiagram)
+    public void fill(IntervalDateTime intervalDateTime)
     {
-        _listFillDiagram =listFillDiagram;
+        _listFillDiagram =fillData(intervalDateTime);
         invalidate();
+    }
+
+    private List<FillDiagram> fillData(IntervalDateTime dateTimeHelper)
+    {
+        DataBaseHelper db = DataBaseConnection.getConnection(getContext());
+        float totalCost =  Float.parseFloat(db.getSumCost(dateTimeHelper));
+        float typeCost;
+
+        int[] colorTable = BasicHelper.createColorTable(this.getContext());
+        List<FillDiagram> listFillDiagram = new ArrayList<FillDiagram>();
+        List<String> listType = db.getAllTypes();
+        for(int i=1; i<8; i++)
+        {
+            typeCost = Float.parseFloat(db.getSumCostTypeInterval(i,dateTimeHelper));
+            if(typeCost != 0)
+            {
+                listFillDiagram.add(new FillDiagram(colorTable[i-1], (typeCost/totalCost), listType.get(i-1), typeCost));
+            }else
+            {
+                listFillDiagram.add(new FillDiagram(colorTable[i-1], 0, listType.get(i-1), 0));
+            }
+        }
+        return listFillDiagram;
     }
 
 }

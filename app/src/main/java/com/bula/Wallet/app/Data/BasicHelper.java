@@ -3,6 +3,7 @@ package com.bula.Wallet.app.Data;
 import android.content.Context;
 import android.graphics.Color;
 
+import com.bula.Wallet.app.Data.Data.IntervalDateTime;
 import com.bula.Wallet.app.R;
 
 import java.text.DateFormat;
@@ -171,11 +172,12 @@ public class BasicHelper {
         return new IntervalDateTime(dateBegin,dateEnd);
     }
 
-    public static IntervalDateTime[] getAllWeekInMonth(int monthNumber , int year)
+    public static List<IntervalDateTime> getAllWeekInMonth(int monthNumber , int year)
     {
-        IntervalDateTime[] intervalDateTime = new IntervalDateTime[6];
+        List<IntervalDateTime> intervalDateTimes = new ArrayList<IntervalDateTime>();
         Date dateBegin,dateEnd ;
         int dayOfWeek;
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.MONTH,monthNumber);
         calendar.set(Calendar.YEAR,year);
@@ -192,13 +194,13 @@ public class BasicHelper {
             calendar = setTime(calendar, false);
             dateEnd = calendar.getTime();
             if(dateBegin.getMonth() == monthNumber || dateBegin.getMonth() == (monthNumber-1)) {
-                intervalDateTime[i] = new IntervalDateTime(dateBegin, dateEnd);
+                intervalDateTimes.add(new IntervalDateTime(dateBegin, dateEnd));
                 calendar.setTime(dateEnd);
                 calendar.add(Calendar.DAY_OF_MONTH, 1);
             }
         }
 
-        return intervalDateTime;
+        return intervalDateTimes;
     }
 
     public static String getMonthName(int num, Context _context)

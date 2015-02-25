@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Tabs;
 
 import android.content.Context;
 import android.view.View;
@@ -9,11 +9,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBaseHelper;
-import com.bula.Wallet.app.Data.IntervalDateTime;
-import com.bula.Wallet.app.Data.FillDiagram;
-import com.bula.Wallet.app.Data.Statistic;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Data.Data.IntervalDateTime;
+import com.bula.Wallet.app.Data.Data.Statistic;
 import com.bula.Wallet.app.R;
+import com.bula.Wallet.app.View.Controls.IntervalControl;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -72,7 +72,7 @@ public class StatisticsView implements IView {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int selectedIndex = spinnerStatistic.getSelectedItemPosition();
                 if(selectedIndex < _listStatisticName.size()-1) {
-                    percentView.fill(fillData(_listStatistic.get(selectedIndex).getInterval()));
+                    percentView.fill(_listStatistic.get(selectedIndex).getInterval());
                     cost.setText(" " + db.getSumCost(_listStatistic.get(selectedIndex).getInterval()));
 
                     Calendar calendar  = Calendar.getInstance();
@@ -107,37 +107,15 @@ public class StatisticsView implements IView {
     public void executeData() {
 
         if(_listStatistic.get(spinnerStatistic.getSelectedItemPosition()).getInterval()!= null) {
-            percentView.fill(fillData(_listStatistic.get(spinnerStatistic.getSelectedItemPosition()).getInterval()));
+            percentView.fill(_listStatistic.get(spinnerStatistic.getSelectedItemPosition()).getInterval());
             cost.setText(db.getSumCost(_listStatistic.get(spinnerStatistic.getSelectedItemPosition()).getInterval()));
         }
         else
         {
             IntervalDateTime intervalDateTime = new IntervalDateTime(intervalControl.getDateFrom().getText().toString(), intervalControl.getDateTo().getText().toString());
-            percentView.fill(fillData(intervalDateTime));
+            percentView.fill(intervalDateTime);
             cost.setText(db.getSumCost(intervalDateTime));
         }
-    }
-
-    public List<FillDiagram> fillData(IntervalDateTime dateTimeHelper)
-    {
-        float totalCost =  Float.parseFloat(db.getSumCost(dateTimeHelper));
-        float typeCost;
-
-        int[] colorTable = BasicHelper.createColorTable(_context);
-        List<FillDiagram> listFillDiagram = new ArrayList<FillDiagram>();
-        List<String> listType = db.getAllTypes();
-        for(int i=1; i<8; i++)
-        {
-            typeCost = Float.parseFloat(db.getSumCostTypeInterval(i,dateTimeHelper));
-            if(typeCost != 0)
-            {
-                listFillDiagram.add(new FillDiagram(colorTable[i-1], (typeCost/totalCost), listType.get(i-1), typeCost));
-            }else
-            {
-                listFillDiagram.add(new FillDiagram(colorTable[i-1], 0, listType.get(i-1), 0));
-            }
-        }
-        return listFillDiagram;
     }
 
 }

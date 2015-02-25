@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="10">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight="0.1"
-        android:layout_height="30dp">
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:weightSum="10">
 
         <Button
             android:layout_width="fill_parent"
@@ -38,12 +40,29 @@
 
     </LinearLayout>
 
+
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="cost"
-        android:layout_weight="0.6"
+        android:layout_weight="0"
         android:id="@+id/cost"/>
+
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.5"
+        android:choiceMode="singleChoice"
+        android:listSelector="#449def"
+        android:id="@+id/listViewInterval"/>
+
+    <com.bula.Wallet.app.View.Tabs.PercentView
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:id="@+id/percentViewCost"
+        android:layout_weight="4.5"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" />
 
 </LinearLayout>

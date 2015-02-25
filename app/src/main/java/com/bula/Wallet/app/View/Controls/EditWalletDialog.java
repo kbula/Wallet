@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.View;
+package com.bula.Wallet.app.View.Controls;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,10 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBaseHelper;
-import com.bula.Wallet.app.Data.WalletData;
+import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Data.Data.WalletData;
 import com.bula.Wallet.app.R;
+import com.bula.Wallet.app.View.Tabs.IView;
 
 /**
  * Created by Krzysiek on 2014-10-19.
