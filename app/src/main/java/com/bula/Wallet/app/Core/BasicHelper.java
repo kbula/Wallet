@@ -1,9 +1,9 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Core;
 
 import android.content.Context;
 import android.graphics.Color;
 
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 import com.bula.Wallet.app.R;
 
 import java.text.DateFormat;

@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Tabs.AllView;
 import com.bula.Wallet.app.View.Tabs.IView;

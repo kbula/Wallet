@@ -1,10 +1,9 @@
-package com.bula.Wallet.app.Data.Data;
+package com.bula.Wallet.app.Core.Data;
 
-import com.bula.Wallet.app.Data.BasicHelper;
+import com.bula.Wallet.app.Core.BasicHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 /**
  * Created by Krzysiek on 2014-08-09.

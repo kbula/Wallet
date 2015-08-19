@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Core;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View.OnClickListener;
 
-import com.bula.Wallet.app.Data.Data.AllData;
-import com.bula.Wallet.app.Data.Data.WalletData;
+import com.bula.Wallet.app.Core.Data.AllData;
+import com.bula.Wallet.app.Core.Data.WalletData;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Controls.EditWalletDialog;
 import com.bula.Wallet.app.View.Tabs.IView;

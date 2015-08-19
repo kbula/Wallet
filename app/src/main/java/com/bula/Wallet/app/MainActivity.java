@@ -9,8 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.View.PageAdapter.SectionsPagerAdapter;
 
 

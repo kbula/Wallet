@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
-import com.bula.Wallet.app.Data.Data.Statistic;
+import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.Data.Statistic;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Controls.IntervalControl;
 

@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data.Data;
+package com.bula.Wallet.app.Core.Data;
 
 /**
  * Created by Krzysiek on 2014-09-13.

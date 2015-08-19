@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
 
-import com.bula.Wallet.app.Data.BasicHelper;
+import com.bula.Wallet.app.Core.BasicHelper;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Tabs.IView;
 

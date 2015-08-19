@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data.DataBase;
+package com.bula.Wallet.app.Core.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,9 @@ import android.util.Log;
 import android.database.Cursor;
 import android.util.SparseArray;
 
-import com.bula.Wallet.app.Data.Data.AllData;
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
-import com.bula.Wallet.app.Data.Data.WalletData;
+import com.bula.Wallet.app.Core.Data.AllData;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.Data.WalletData;
 
 import java.io.File;
 import java.util.ArrayList;

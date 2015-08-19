@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.R;
-import com.bula.Wallet.app.Data.Data.WalletData;
+import com.bula.Wallet.app.Core.Data.WalletData;
 import com.bula.Wallet.app.View.Controls.DatePickerDialog;
 
 /**

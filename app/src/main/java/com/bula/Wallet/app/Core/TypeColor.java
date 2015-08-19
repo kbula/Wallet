@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Core;
 
 
 import android.content.Context;

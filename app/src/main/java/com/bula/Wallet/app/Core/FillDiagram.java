@@ -1,6 +1,5 @@
-package com.bula.Wallet.app.Data;
+package com.bula.Wallet.app.Core;
 
-import android.graphics.Color;
 import android.graphics.Paint;
 
 import java.math.BigDecimal;

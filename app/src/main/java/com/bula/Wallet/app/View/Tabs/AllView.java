@@ -7,11 +7,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Spinner;
 
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Controls.IntervalControl;
-import com.bula.Wallet.app.Data.WalletExpandableListAdapter;
+import com.bula.Wallet.app.Core.WalletExpandableListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.bula.Wallet.app.Data.DataBase;
+package com.bula.Wallet.app.Core.DataBase;
 
 import android.content.Context;
 

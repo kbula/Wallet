@@ -8,11 +8,11 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.DataBase.DataBaseConnection;
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
-import com.bula.Wallet.app.Data.FillDiagram;
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseConnection;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.FillDiagram;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 
 import java.util.ArrayList;
 import java.util.List;

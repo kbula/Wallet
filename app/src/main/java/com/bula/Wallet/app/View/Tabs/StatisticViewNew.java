@@ -8,11 +8,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bula.Wallet.app.Data.BasicHelper;
-import com.bula.Wallet.app.Data.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 import com.bula.Wallet.app.R;
 
-import com.bula.Wallet.app.Data.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -63,6 +63,8 @@ public class StatisticViewNew implements IView {
             public void onClick(View v) {
                 calendar.add(Calendar.MONTH,-1);
                 displayData(calendar);
+                selectItemList(0);
+                percentView.fill(listIntervalDateTimes.get(0));
             }
         });
 
@@ -71,6 +73,8 @@ public class StatisticViewNew implements IView {
             public void onClick(View v) {
                 calendar.add(Calendar.MONTH,1);
                 displayData(calendar);
+                selectItemList(0);
+                percentView.fill(listIntervalDateTimes.get(0));
             }
         });
 
@@ -121,10 +125,15 @@ public class StatisticViewNew implements IView {
         listViewInterval.setAdapter(adapter);
 
         if(actualWeekId>=0) {
-            listViewInterval.requestFocusFromTouch();
-            listViewInterval.setSelection(actualWeekId);
+            selectItemList(actualWeekId);
         }
 
+    }
+
+    private void selectItemList(int id)
+    {
+        listViewInterval.requestFocusFromTouch();
+        listViewInterval.setSelection(id);
     }
 
 }
