@@ -45,20 +45,18 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase dataBase) {
 
-        Log.d("create database","create start");
+        Log.d("create database", "create start");
         String createTableData= "CREATE TABLE IF NOT EXISTS "+TABLE_DATA+" ( Id INTEGER PRIMARY KEY AUTOINCREMENT, Cost DOUBLE, Type INTEGER, DateTime DATETIME,Comment TEXT)";
         String createTableType= "CREATE TABLE IF NOT EXISTS "+TABLE_TYPE+" ( Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT)";
 
         dataBase.execSQL(createTableData);
         dataBase.execSQL(createTableType);
 
-        FillTable(dataBase,"jedzenie");
-        FillTable(dataBase,"mieszkanie");
-        FillTable(dataBase,"zdrowie");
-        FillTable(dataBase,"transport");
-        FillTable(dataBase,"ubrania");
-        FillTable(dataBase,"relaks");
-        FillTable(dataBase,"inne");
+        String[] category = {"jedzenie", "mieszkanie", "zdrowie", "transport", "ubrania", "relaks", "inne"};
+
+        for (String item : category) {
+            FillTable(dataBase, item);
+        }
 
         Log.d("create database","create end");
     }
@@ -150,7 +148,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     public SparseArray<AllData> getAllItemFromType(int typeId, IntervalDateTime dateTimeHelper)
     {
-        //List<String> listTypes= new ArrayList<String>();
         SparseArray<AllData> listAllData = new SparseArray<AllData>();
         AllData allData = null;
 
@@ -169,26 +166,22 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         if(cursor.moveToFirst())
         {
             do {
-                //listTypes.add(cursor.getString(0) + "  \t|\t  " + cursor.getString(1) + "  \t|\t  " + cursor.getString(2));
                 name = cursor.getString(3);
                 if(allData == null)
                 {
                     allData =  new AllData(cursor.getString(3));
                     allData.typeData.add(new WalletData(Integer.parseInt(cursor.getString(0)),Double.parseDouble(cursor.getString(1)),cursor.getString(3),cursor.getString(4),cursor.getString(2)));
-                    //allData.typeData.add(cursor.getString(0) + "  \t|\t  " + cursor.getString(1) + "  \t|\t  " + cursor.getString(3));
                 }
                 if(cursor.moveToNext())
                 {
                     if(!name.equals(cursor.getString(3)))
                     {
-                        //allData.typeData.add(cursor.getString(0) + "  \t|\t  " + cursor.getString(1) + "  \t|\t  " + cursor.getString(2));
                         listAllData.append(key,allData);
                         allData = null;
                         key++;
                     }
                     else
                     {
-                        //allData.typeData.add(cursor.getString(0) + "  \t|\t  " + cursor.getString(1) + "  \t|\t  " + cursor.getString(3));
                         allData.typeData.add(new WalletData(Integer.parseInt(cursor.getString(0)), Double.parseDouble(cursor.getString(1)),cursor.getString(3),cursor.getString(4),cursor.getString(2)));
                     }
 
@@ -197,8 +190,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
 
             }while (cursor.moveToNext());
-        }else {
-            //listTypes.add("null");
         }
         if(allData != null)
             listAllData.append(key,allData);

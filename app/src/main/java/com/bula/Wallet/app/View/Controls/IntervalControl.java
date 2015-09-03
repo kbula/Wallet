@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.IntervalDateFactory;
+import com.bula.Wallet.app.Core.Intervals;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Tabs.IView;
 
@@ -29,7 +31,7 @@ public class IntervalControl {
         dateFrom = (EditText) view.findViewById(R.id.editDateFrom);
         dateTo = (EditText) view.findViewById(R.id.editDateTo);
 
-        dateFrom.setText(BasicHelper.getThisWeek().getBeginDate());
+        dateFrom.setText(IntervalDateFactory.getIntervalDate(Intervals.ThisWeek).getBeginDate());
         dateTo.setText(BasicHelper.getDateToday());
         dateTo.setFocusable(false);
         dateFrom.setFocusable(false);

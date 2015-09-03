@@ -7,12 +7,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bula.Wallet.app.Core.BasicHelper;
 import com.bula.Wallet.app.Core.Data.IntervalDateTime;
+import com.bula.Wallet.app.Core.IntervalDateFactory;
+import com.bula.Wallet.app.Core.Intervals;
 import com.bula.Wallet.app.R;
 
 import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
+import com.bula.Wallet.app.View.Controls.PercentViewDialog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -49,14 +53,14 @@ public class StatisticViewNew implements IView {
         monthName = (TextView) view.findViewById(R.id.monthName);
         cost = (TextView) view.findViewById(R.id.cost);
         listViewInterval = (ListView) view.findViewById(R.id.listViewInterval);
-        percentView = (PercentView) view.findViewById(R.id.percentViewCost);
+        //percentView = (PercentView) view.findViewById(R.id.percentViewCost);
 
 
         calendar = Calendar.getInstance();
-        calendar.setTime(BasicHelper.getThisMonth().getBegin());
+        calendar.setTime(IntervalDateFactory.getIntervalDate(Intervals.ThisMonth).getBegin());
         displayData(calendar);
 
-        percentView.fill(BasicHelper.getThisWeek());
+       // percentView.fill(IntervalDateFactory.getIntervalDate(Intervals.ThisWeek));
 
         prev.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -64,7 +68,8 @@ public class StatisticViewNew implements IView {
                 calendar.add(Calendar.MONTH,-1);
                 displayData(calendar);
                 selectItemList(0);
-                percentView.fill(listIntervalDateTimes.get(0));
+
+               // percentView.fill(listIntervalDateTimes.get(0));
             }
         });
 
@@ -74,26 +79,30 @@ public class StatisticViewNew implements IView {
                 calendar.add(Calendar.MONTH,1);
                 displayData(calendar);
                 selectItemList(0);
-                percentView.fill(listIntervalDateTimes.get(0));
+               // percentView.fill(listIntervalDateTimes.get(0));
             }
         });
 
         listViewInterval.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(listIntervalDateTimes != null) {
-                    percentView.fill(listIntervalDateTimes.get(position));
+                if (listIntervalDateTimes != null) {
+                    // percentView.fill(listIntervalDateTimes.get(position));
+                    if (Float.parseFloat(_dataBaseHelper.getSumCost(listIntervalDateTimes.get(position))) != 0.0f) {
+                        PercentViewDialog.showDialog(_context, listIntervalDateTimes.get(position));
+                        return;
+                    }
+                    Toast.makeText(_context, "brak danych", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
     }
 
     @Override
     public void executeData() {
 
        // monthName.setText(BasicHelper.getMonthName(actualMonthnumber));
-        percentView.fill(BasicHelper.getThisWeek());
+       // percentView.fill(IntervalDateFactory.getIntervalDate(Intervals.ThisWeek));
         displayData(calendar);
     }
 
@@ -108,12 +117,14 @@ public class StatisticViewNew implements IView {
         List<String> listinterval = new ArrayList<String>();
         int actualWeekId=-1;
 
+        IntervalDateTime thisWeek = IntervalDateFactory.getIntervalDate(Intervals.ThisWeek);
+
         for (IntervalDateTime item : listIntervalDateTimes)
         {
             if(item != null)
             {
                 listinterval.add(item.getBeginDate() + " - " + item.getEndDate() + "\t" +" " +_dataBaseHelper.getSumCost(item));
-                if(item.getBeginDate().equals(BasicHelper.getThisWeek().getBeginDate()) && item.getEndDate().equals(BasicHelper.getThisWeek().getEndDate()))
+                if(item.getBeginDate().equals(thisWeek.getBeginDate()) && item.getEndDate().equals(thisWeek.getEndDate()))
                 {
                     actualWeekId = listinterval.size()-1;
                 }

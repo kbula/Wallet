@@ -6,7 +6,7 @@
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:layout_marginLeft="8dp"
-    android:drawableLeft="@drawable/ic_launcher"
+
     android:gravity="left"
     android:paddingLeft="32dp"
     android:paddingTop="8dp"
@@ -14,3 +14,4 @@
     android:textSize="14dp"
     android:textAlignment="textEnd"
     android:textStyle="bold"/>
+    <!-- android:drawableLeft="@drawable/ic_launcher" -->

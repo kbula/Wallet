@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class PercentView extends View {
 
+    private boolean dialog = false;
 
     public PercentView (Context context) {
         super(context);
@@ -56,40 +57,11 @@ public class PercentView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //draw background circle anyway
-        int left = 10;
-        int width = getWidth();
-        int height = getHeight();
-        int top = 0;
-        if(width < height + 150) {
-            rect.set(left, top, (left + height) / 2, (top + height) / 2);
-        }else
-        {
-            rect.set(left, top,  height - 40,  height - 40);
+        if(dialog) {
+            showOnDialog(canvas);
+            return;
         }
-       // canvas.drawArc(rect, -90, 360, true, bgpaint);
-   /*     if(percentage!=0) {
-            canvas.drawArc(rect, -90, (360*percentage), true, paint);
-        }*/
-
-        int i =0;
-        int startDraw = (left+width)/2;
-        int rectangeSize= width/29;
-
-        if(_listFillDiagram!= null)
-        {
-            float lastDegree=0;
-            for(FillDiagram item : _listFillDiagram)
-            {
-                canvas.drawArc(rect, lastDegree, item.getDegree(), true, item.getPaint());
-                lastDegree +=item.getDegree();
-
-                canvas.drawRect(startDraw+20, i, startDraw+rectangeSize+20, rectangeSize+i, item.getPaint());
-                item.getPaint().setTextSize(20);
-                i = i + rectangeSize+2;
-
-                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangeSize + 30, i - 10, item.getPaint());
-            }
-        }
+        show(canvas);
     }
     public void setPercentage(float percentage) {
         this.percentage = percentage / 100;
@@ -98,7 +70,15 @@ public class PercentView extends View {
 
     public void fill(IntervalDateTime intervalDateTime)
     {
-        _listFillDiagram =fillData(intervalDateTime);
+        dialog = false;
+        _listFillDiagram = fillData(intervalDateTime);
+        invalidate();
+    }
+
+    public void fillDialog(IntervalDateTime intervalDateTime)
+    {
+        dialog = true;
+        _listFillDiagram = fillData(intervalDateTime);
         invalidate();
     }
 
@@ -123,6 +103,92 @@ public class PercentView extends View {
             }
         }
         return listFillDiagram;
+    }
+
+    public void show(Canvas canvas)
+    {
+        int left = 10;
+        int width = getWidth();
+        int height = getHeight();
+        int top = 0;
+        if(width < height + 150) {
+            rect.set(left, top, (left + height) / 2, (top + height) / 2);
+        }else
+        {
+            rect.set(left, top,  height - 40,  height - 40);
+        }
+        // canvas.drawArc(rect, -90, 360, true, bgpaint);
+   /*     if(percentage!=0) {
+            canvas.drawArc(rect, -90, (360*percentage), true, paint);
+        }*/
+
+        int i =0;
+        int startDraw = (left+width)/2;
+        int rectangeSize= width/29;
+
+        if(_listFillDiagram!= null)
+        {
+            float lastDegree=0;
+            for(FillDiagram item : _listFillDiagram)
+            {
+                canvas.drawArc(rect, lastDegree, item.getDegree(), true, item.getPaint());
+                lastDegree +=item.getDegree();
+
+                canvas.drawRect(startDraw+20, i, startDraw+rectangeSize+20, rectangeSize+i, item.getPaint());
+                item.getPaint().setTextSize(20);
+                i = i + rectangeSize+2;
+
+                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangeSize + 30, i - 10, item.getPaint());
+            }
+        }
+    }
+
+    public void showOnDialog(Canvas canvas)
+    {
+        int left = 10;
+        int width = getWidth();
+        int height = getHeight();
+        int top = 10;
+
+        if(width < height + 150) {
+            rect.set(left, top, (left + height) / 2, (top + height) / 2);
+        }else
+        {
+            rect.set(left, top,  height - 40,  height - 40);
+        }
+        // canvas.drawArc(rect, -90, 360, true, bgpaint);
+   /*     if(percentage!=0) {
+            canvas.drawArc(rect, -90, (360*percentage), true, paint);
+        }*/
+
+        int i =width;
+        int startDraw = left;//(left+width)/2;
+        int rectangeSize= width/29;
+        float count = 0.0f;
+
+        if(_listFillDiagram!= null)
+        {
+            float lastDegree=0;
+            for(FillDiagram item : _listFillDiagram)
+            {
+                canvas.drawArc(rect, lastDegree, item.getDegree(), true, item.getPaint());
+                lastDegree +=item.getDegree();
+
+                canvas.drawRect(startDraw+20, i, startDraw+rectangeSize+20, rectangeSize+i, item.getPaint());
+                item.getPaint().setTextSize(20);
+                i = i + rectangeSize+2;
+
+                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangeSize + 30, i - 10, item.getPaint());
+                count += item.getTypeCost();
+            }
+            i = i + rectangeSize+2;
+            paint = new Paint();
+            paint.setColor(Color.BLACK);
+            paint.setFakeBoldText(true);
+            paint.setTextSize(20);
+            canvas.drawText(String.format("Suma : %.2f",count), startDraw + 30, i,paint );
+        }
+
     }
 
 }

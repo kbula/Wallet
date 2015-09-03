@@ -12,6 +12,8 @@ import com.bula.Wallet.app.Core.BasicHelper;
 import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 import com.bula.Wallet.app.Core.Data.Statistic;
+import com.bula.Wallet.app.Core.IntervalDateFactory;
+import com.bula.Wallet.app.Core.Intervals;
 import com.bula.Wallet.app.R;
 import com.bula.Wallet.app.View.Controls.IntervalControl;
 
@@ -39,10 +41,10 @@ public class StatisticsView implements IView {
         _context = context;
         db = dataBaseHelper;
         _listStatistic = new ArrayList<Statistic>();
-        _listStatistic.add(new Statistic("Koszt aktualnego tygodnia",BasicHelper.getThisWeek()));
-        _listStatistic.add(new Statistic("Koszt poprzedniego tygodnia",BasicHelper.getLastWeek()));
-        _listStatistic.add(new Statistic("Koszt aktualnego miesiaca",BasicHelper.getThisMonth()));
-        _listStatistic.add(new Statistic("Koszt poprzedniego miesiaca",BasicHelper.getLatsMonth()));
+        _listStatistic.add(new Statistic("Koszt aktualnego tygodnia", IntervalDateFactory.getIntervalDate(Intervals.ThisWeek)));
+        _listStatistic.add(new Statistic("Koszt poprzedniego tygodnia",IntervalDateFactory.getIntervalDate(Intervals.LastWeek)));
+        _listStatistic.add(new Statistic("Koszt aktualnego miesiaca",IntervalDateFactory.getIntervalDate(Intervals.ThisMonth)));
+        _listStatistic.add(new Statistic("Koszt poprzedniego miesiaca",IntervalDateFactory.getIntervalDate(Intervals.LastMonth)));
         _listStatistic.add(new Statistic("Wybierz okres",null));
 
         _listStatisticName = new ArrayList<String>();
