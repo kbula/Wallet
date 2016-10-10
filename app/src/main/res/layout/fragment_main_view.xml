@@ -35,7 +35,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight="0.1"
+        android:layout_weight="0.12"
         android:layout_height="30dp">
 
         <TextView
@@ -88,8 +88,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_weight="0.1"
-        android:layout_height="60dp">
+        android:layout_weight="0.15"
+        android:layout_height="50dp">
 
         <TextView
             android:layout_width="fill_parent"
@@ -102,6 +102,7 @@
         <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:lines="2"
             android:id="@+id/editTextNotes"
             android:layout_weight="1" />
 

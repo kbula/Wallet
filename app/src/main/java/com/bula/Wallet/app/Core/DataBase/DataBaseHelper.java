@@ -4,17 +4,21 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Color;
 import android.util.Log;
 import android.database.Cursor;
 import android.util.SparseArray;
 
 import com.bula.Wallet.app.Core.Data.AllData;
+import com.bula.Wallet.app.Core.Data.TypeData;
 import com.bula.Wallet.app.Core.Data.IntervalDateTime;
 import com.bula.Wallet.app.Core.Data.WalletData;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataBaseHelper extends SQLiteOpenHelper{
 
@@ -27,15 +31,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     private static final String TABLE_VALUE_COMMENT = "Comment";
     private static final String TABLE_VALUE_DATETIME = "DateTime";
     private static final String TABLE_VALUE_NAME = "Name";
+    private static final String TABLE_VALUE_COLOR = "Color";
     public SQLiteDatabase db;
 
 
     public DataBaseHelper(Context context)
     {
-        super(context,"/sdcard/Wallet/" + DATABASE_NAME + ".db",null,DATABASE_VERSION);
+        super(context, "/sdcard/Wallet/" + DATABASE_NAME + ".db", null, DATABASE_VERSION);
         File file = new File("/sdcard/Wallet");
         file.mkdirs();
-        SQLiteDatabase.openOrCreateDatabase("/sdcard/Wallet/" + DATABASE_NAME + ".db", null); // zapis bazy nakarcie pamięci
+        SQLiteDatabase.openOrCreateDatabase("/sdcard/Wallet/" + DATABASE_NAME + ".db", null); // zapis bazy na karcie pamięci
         db = this.getWritableDatabase();
         //db = SQLiteDatabase.openDatabase("/sdcard/Wallet/" +DATABASE_NAME + ".db", null,SQLiteDatabase.CREATE_IF_NECESSARY);
         //onCreate(SQLiteDatabase.openOrCreateDatabase("/sdcard/Wallet/" + DATABASE_NAME + ".db",null));
@@ -47,23 +52,39 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         Log.d("create database", "create start");
         String createTableData= "CREATE TABLE IF NOT EXISTS "+TABLE_DATA+" ( Id INTEGER PRIMARY KEY AUTOINCREMENT, Cost DOUBLE, Type INTEGER, DateTime DATETIME,Comment TEXT)";
-        String createTableType= "CREATE TABLE IF NOT EXISTS "+TABLE_TYPE+" ( Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT)";
+        String createTableType= "CREATE TABLE IF NOT EXISTS "+TABLE_TYPE+" ( Id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, COLOR INTEGER)";
 
         dataBase.execSQL(createTableData);
         dataBase.execSQL(createTableType);
 
-        String[] category = {"jedzenie", "mieszkanie", "zdrowie", "transport", "ubrania", "relaks", "inne"};
+        HashMap<String, String> category = new HashMap<String, String>();
+        category.put("jedzenie", "#ffe82931");
+        category.put("mieszkanie", "#ff5ae836");
+        category.put("zdrowie", "#ff4449e8");
+        category.put("transport", "#ffe87b10");
+        category.put("ubrania", "#ff5de8e0");
+        category.put("relaks", "#ffa244e8");
+        category.put("inne", "#ddff437f");
+        category.put("paliwo", "#e58bba2c");
+        category.put("auto", "#ccbe1a");
 
-        for (String item : category) {
-            FillTable(dataBase, item);
+        for (Map.Entry<String, String> item : category.entrySet()) {
+            FillTableType(dataBase, item.getKey(), item.getValue());
         }
 
-        Log.d("create database","create end");
+/*        String[] categoryName = {"jedzenie", "mieszkanie", "zdrowie", "transport", "ubrania", "relaks", "inne", "paliwo", "auto"};
+        String[] categoryColor = {"#ffe82931", "#ff5ae836", "#ff4449e8", "#ffe87b10", "#ff5de8e0", "#ffa244e8", "#ddff437f", "#e58bba2c", "#ccbe1a"};
+
+        for (String item : categoryName) {
+            FillTable(dataBase, item);
+        }*/
+
+        Log.d("create database", "create end");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase dataBase, int oldVersion, int newVersion) {
-        dataBase.execSQL("DROP TABLE IF EXISTS "+TABLE_DATA+"");
+        //dataBase.execSQL("DROP TABLE IF EXISTS "+TABLE_DATA+"");
 
         this.onCreate(dataBase);
 
@@ -102,6 +123,23 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             }while (cursor.moveToNext());
         }else {
             listTypes.add("null");
+        }
+
+        return  listTypes;
+    }
+
+    public List<TypeData> getAllTypesWithColor()
+    {
+        List<TypeData> listTypes= new ArrayList<TypeData>();
+        String item;
+        String query = "SELECT Name, Color FROM "+TABLE_TYPE;
+        Cursor cursor = db.rawQuery(query,null);
+
+        if(cursor.moveToFirst())
+        {
+            do {
+                listTypes.add(new TypeData(cursor.getString(0), Color.parseColor(cursor.getString(1)) ));
+            }while (cursor.moveToNext());
         }
 
         return  listTypes;
@@ -211,6 +249,12 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return getSum(query);
     }
 
+    public String getCountType()
+    {
+        String query = "SELECT COUNT(ID) from "+ TABLE_TYPE;
+        return getSum(query);
+    }
+
     public void UpdateData(WalletData walletData)
     {
         String[] args = new String[1];
@@ -290,10 +334,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return getTypeId(db,name);
     }
 
-    private void FillTable(SQLiteDatabase dataBase, String type)
+    private void FillTableType(SQLiteDatabase dataBase, String type, String color)
     {
         ContentValues values= new ContentValues();
         values.put(TABLE_VALUE_NAME,type);
+        values.put(TABLE_VALUE_COLOR, color);
         dataBase.insert(TABLE_TYPE, null, values);
     }
 

@@ -148,19 +148,6 @@ public class BasicHelper {
         return calendar;
     }
 
-    public static int[] createColorTable(Context _context)
-    {
-        int[] colorTable = {TypeColor.EAT.getColor(_context),
-                TypeColor.FLAT.getColor(_context),
-                TypeColor.HEALTHY.getColor(_context),
-                TypeColor.TRANSPORT.getColor(_context) ,
-                TypeColor.CLOTHES.getColor(_context),
-                TypeColor.RELAX.getColor(_context),
-                TypeColor.OTHER.getColor(_context),
-                Color.DKGRAY};
-        return colorTable;
-    }
-
     public static String[] createMonthTable(Context _context)
     {
         String[] monthTable = {_context.getResources().getString(R.string.January),

@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.bula.Wallet.app.Core.BasicHelper;
+import com.bula.Wallet.app.Core.Data.TypeData;
 import com.bula.Wallet.app.Core.DataBase.DataBaseConnection;
 import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.Core.FillDiagram;
@@ -88,18 +89,17 @@ public class PercentView extends View {
         float totalCost =  Float.parseFloat(db.getSumCost(dateTimeHelper));
         float typeCost;
 
-        int[] colorTable = BasicHelper.createColorTable(this.getContext());
         List<FillDiagram> listFillDiagram = new ArrayList<FillDiagram>();
-        List<String> listType = db.getAllTypes();
-        for(int i=1; i<8; i++)
+        List<TypeData> listType = db.getAllTypesWithColor();
+        for(int i=1; i<= Integer.parseInt(db.getCountType()); i++)
         {
             typeCost = Float.parseFloat(db.getSumCostTypeInterval(i,dateTimeHelper));
             if(typeCost != 0)
             {
-                listFillDiagram.add(new FillDiagram(colorTable[i-1], (typeCost/totalCost), listType.get(i-1), typeCost));
+                listFillDiagram.add(new FillDiagram(listType.get(i-1).getColor(), (typeCost/totalCost), listType.get(i-1).getName(), typeCost));
             }else
             {
-                listFillDiagram.add(new FillDiagram(colorTable[i-1], 0, listType.get(i-1), 0));
+                listFillDiagram.add(new FillDiagram(listType.get(i-1).getColor(), 0, listType.get(i-1).getName(), 0));
             }
         }
         return listFillDiagram;
@@ -152,43 +152,47 @@ public class PercentView extends View {
 
         if(width < height + 150) {
             rect.set(left, top, (left + height) / 2, (top + height) / 2);
+            drawLegend(canvas, width, left, true);
         }else
         {
-            rect.set(left, top,  height - 40,  height - 40);
+            rect.set(left, top,  height - 120,  height - 120);
+            drawLegend(canvas, height, height - 120, false);
         }
-        // canvas.drawArc(rect, -90, 360, true, bgpaint);
-   /*     if(percentage!=0) {
-            canvas.drawArc(rect, -90, (360*percentage), true, paint);
-        }*/
+    }
 
-        int i =width;
-        int startDraw = left;//(left+width)/2;
-        int rectangeSize= width/29;
+    private void drawLegend(Canvas canvas, int width, int startDrawFromLeft, boolean drawBelow)
+    {
+        int i = width;
+        int startDraw = startDrawFromLeft;
+        int rectangleSize= width/29;
         float count = 0.0f;
 
-        if(_listFillDiagram!= null)
-        {
-            float lastDegree=0;
-            for(FillDiagram item : _listFillDiagram)
-            {
+        if(!drawBelow)
+            i = 100;
+
+        if(_listFillDiagram!= null) {
+            float lastDegree = 0;
+            for (FillDiagram item : _listFillDiagram) {
                 canvas.drawArc(rect, lastDegree, item.getDegree(), true, item.getPaint());
-                lastDegree +=item.getDegree();
+                lastDegree += item.getDegree();
 
-                canvas.drawRect(startDraw+20, i, startDraw+rectangeSize+20, rectangeSize+i, item.getPaint());
+                canvas.drawRect(startDraw + 20, i, startDraw + rectangleSize + 20, rectangleSize + i, item.getPaint());
                 item.getPaint().setTextSize(20);
-                i = i + rectangeSize+2;
+                i = i + rectangleSize + 2;
 
-                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangeSize + 30, i - 10, item.getPaint());
+                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangleSize + 30, i - 10, item.getPaint());
                 count += item.getTypeCost();
             }
-            i = i + rectangeSize+2;
+            i = i + +2;
             paint = new Paint();
             paint.setColor(Color.BLACK);
             paint.setFakeBoldText(true);
-            paint.setTextSize(20);
-            canvas.drawText(String.format("Suma : %.2f",count), startDraw + 30, i,paint );
+            paint.setTextSize(25);
+            paint.setStyle(Paint.Style.STROKE);
+            canvas.drawLine(startDraw, i, startDraw + 300, i, paint);
+            i = i + rectangleSize + 12;
+            canvas.drawText(String.format("Suma : %.2f", count), startDraw + 40, i, paint);
         }
-
     }
 
 }
