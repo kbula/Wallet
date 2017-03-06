@@ -2,32 +2,58 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\libs\internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-13bb0a8d47a05d4fea3308a46b56da82bbcea792.jar" />
+        is-multidex="true"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-21.0.0_942a00eae9e94bbf9436a50907fead2fcde562a3\classes.dex" />
     </item>
     <item
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-9b68fa5de2de23d0abf5d20ba3e0a64d64a35d82.jar" />
+        is-multidex="true"
+        jar="C:\Users\Krzysiek\.android\build-cache\1a26fd95428351ecc524c9f2cfe31daa712c8be7\output\jars\libs\internal_impl-21.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-21.0.0_10c5cf5ada3782d6144c2431d0d786d2009c556f\classes.dex" />
     </item>
     <item
-        jar="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
-        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\pre-dexed\debug\classes-76036c78c73bc7654f7cfdbfb1c39d72b3b15ed9.jar" />
+        is-multidex="true"
+        jar="C:\Users\Krzysiek\.android\build-cache\1a26fd95428351ecc524c9f2cfe31daa712c8be7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e40353cd2580f3d6838a756875734917aa7324ec\classes.dex" />
     </item>
     <item
-        jar="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\pre-dexed\debug\classes-c9857c79fa269ac04b5ca4322266b701f6bb4c20.jar" />
+        is-multidex="true"
+        jar="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="200d442a1d0436fc71dd9a8c8dc5fe3789e0f96f">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_a58d0109405c6802457c75cec843bc71a463ca43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Krzysiek\.android\build-cache\1c0b533474f6cba09cc29d3a4d1381c737648936\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c82099d8e6bd3e61173b513aeeec3b8bb412e37b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_f4d87f9ed9c2d0d8cf69ae2df4f1c661a2ba0d92\classes.dex" />
     </item>
 
 </items>

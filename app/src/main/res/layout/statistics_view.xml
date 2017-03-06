@@ -36,17 +36,15 @@
 
     <Spinner
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_weight="0.1"
+        android:layout_height="64dp"
         android:id="@+id/spinnerStatisctic" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:text="New Text"
         android:id="@+id/textViewTotalCost"
-        android:textSize="@dimen/font_size"
-        android:layout_weight="0.10" />
+        android:textSize="@dimen/font_size" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -96,7 +94,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:gravity="center"
         android:textSize="20dip"
         android:id= "@+id/monthName"
@@ -105,9 +103,8 @@
     <com.bula.Wallet.app.View.Tabs.PercentView
         android:layout_gravity="center_vertical|center_horizontal"
         android:id="@+id/percentView"
-        android:layout_weight="0.70"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="432dp" />
 
 
 
