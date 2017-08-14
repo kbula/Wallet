@@ -113,33 +113,11 @@ public class PercentView extends View {
         int top = 0;
         if(width < height + 150) {
             rect.set(left, top, (left + height) / 2, (top + height) / 2);
+            drawLegend(canvas, height, (left + height) / 2 +10, false);
         }else
         {
-            rect.set(left, top,  height - 40,  height - 40);
-        }
-        // canvas.drawArc(rect, -90, 360, true, bgpaint);
-   /*     if(percentage!=0) {
-            canvas.drawArc(rect, -90, (360*percentage), true, paint);
-        }*/
-
-        int i =0;
-        int startDraw = (left+width)/2;
-        int rectangeSize= width/29;
-
-        if(_listFillDiagram!= null)
-        {
-            float lastDegree=0;
-            for(FillDiagram item : _listFillDiagram)
-            {
-                canvas.drawArc(rect, lastDegree, item.getDegree(), true, item.getPaint());
-                lastDegree +=item.getDegree();
-
-                canvas.drawRect(startDraw+20, i, startDraw+rectangeSize+20, rectangeSize+i, item.getPaint());
-                item.getPaint().setTextSize(20);
-                i = i + rectangeSize+2;
-
-                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangeSize + 30, i - 10, item.getPaint());
-            }
+            rect.set(left, top,  (left + height) / 2 - 80,  (left + height) / 2 - 80);
+            drawLegend(canvas, width/2, height, false);
         }
     }
 
@@ -164,7 +142,7 @@ public class PercentView extends View {
     {
         int i = width;
         int startDraw = startDrawFromLeft;
-        int rectangleSize= width/29;
+        int rectangleSize= width/25;
         float count = 0.0f;
 
         if(!drawBelow)
@@ -177,10 +155,10 @@ public class PercentView extends View {
                 lastDegree += item.getDegree();
 
                 canvas.drawRect(startDraw + 20, i, startDraw + rectangleSize + 20, rectangleSize + i, item.getPaint());
-                item.getPaint().setTextSize(20);
+                item.getPaint().setTextSize(25);
                 i = i + rectangleSize + 2;
 
-                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangleSize + 30, i - 10, item.getPaint());
+                canvas.drawText(item.getTypeName() + " " + item.getTypeCost(), startDraw + rectangleSize + 35, i - 15, item.getPaint());
                 count += item.getTypeCost();
             }
             i = i + +2;

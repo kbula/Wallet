@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.bula.Wallet.app.Core.DataBase.DataBaseConnection;
 import com.bula.Wallet.app.Core.DataBase.DataBaseHelper;
 import com.bula.Wallet.app.View.PageAdapter.SectionsPagerAdapter;
+import com.bula.Wallet.app.View.Tabs.StatisticsView;
 
 
 public class MainActivity extends ActionBarActivity implements ActionBar.TabListener {
@@ -75,9 +78,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -88,6 +91,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Toast.makeText(getApplicationContext(), "Settings", Toast.LENGTH_LONG).show();
+
             return true;
         }
         return super.onOptionsItemSelected(item);

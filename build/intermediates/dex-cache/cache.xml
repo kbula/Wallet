@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="200d442a1d0436fc71dd9a8c8dc5fe3789e0f96f">
+        sha1="baa564c3e7e5c09c5e1c17834ee38cd46dffa865">
         <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_a58d0109405c6802457c75cec843bc71a463ca43\classes.dex" />
     </item>
     <item
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="C:\Users\Krzysiek\AndroidStudioProjects\Wallet\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_f4d87f9ed9c2d0d8cf69ae2df4f1c661a2ba0d92\classes.dex" />
     </item>
 
